@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ using UnityEngine;
 
 public class Sable : MonoBehaviour
 {
-    public MarcadorPuntos marcador; // Asignar el marcador en el inspector
+    public MarcadorPuntos marcadorPuntos; // Asigna el marcador en Unity
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Proyectil")) // Si el sable toca un proyectil
+        if (other.CompareTag("Proyectil")) // Si toca un proyectil
         {
+            Debug.Log("Proyectil golpeado por el sable"); // Depuración
             Destroy(other.gameObject); // Destruye el proyectil
-            marcador.SumarPunto(); // Suma un punto
+            marcadorPuntos.SumarPunto(); // Suma puntos
         }
     }
 }

@@ -1,36 +1,30 @@
 using UnityEngine;
-using System.Collections;
 
 public class GeneradorProyectiles : MonoBehaviour
 {
     public GameObject proyectilPrefab;
-    public Transform jugador; // Asigna "XR Origin" aquí
-    public float distanciaInstanciacion = 5f;
-    public float tiempoEntreProyectiles = 2f;
+    public Transform jugador; // Asigna la posición del jugador
+    public float distanciaSpawn = 5f;
+    public float alturaMin = 1f;
+    public float alturaMax = 3f;
+    public float spawnIntervalo = 2f;
 
     void Start()
     {
-        StartCoroutine(GenerarProyectiles());
+        InvokeRepeating("SpawnProyectil", 2f, spawnIntervalo);
     }
 
-    IEnumerator GenerarProyectiles()
-{
-    while (true)
+    void SpawnProyectil()
     {
-        Vector3 posicionProyectil = jugador.position + (jugador.forward * distanciaInstanciacion);
+        // Generamos un offset aleatorio en X para que no siempre salga del centro
+        float offsetX = Random.Range(-2f, 2f);  // Puedes ajustar el rango según necesites
+        float altura = Random.Range(alturaMin, alturaMax);
 
-        // Ajustar altura al nivel de los ojos del jugador
-        posicionProyectil.y = jugador.position.y;  
+        Vector3 spawnPos = jugador.position + jugador.forward * distanciaSpawn;
+        spawnPos += new Vector3(offsetX, altura, 0); // Modifica la altura y lateralidad
 
-        // Agregar un ligero offset aleatorio en X para mejorar jugabilidad
-        posicionProyectil += new Vector3(Random.Range(-1f, 1f), 0, 0);
-
-        GameObject proyectil = Instantiate(proyectilPrefab, posicionProyectil, Quaternion.identity);
-        proyectil.transform.LookAt(jugador.position + Vector3.up * 1.5f); // Apuntar un poco más alto
-        proyectil.AddComponent<Proyectil>(); // Le agregamos el script de movimiento
-
-        yield return new WaitForSeconds(tiempoEntreProyectiles);
+        GameObject proyectil = Instantiate(proyectilPrefab, spawnPos, Quaternion.identity);
+        proyectil.transform.LookAt(jugador); // Hace que apunte al jugador
+        proyectil.GetComponent<Rigidbody>().velocity = (jugador.position - spawnPos).normalized * 5f; // Ajusta la velocidad
     }
-}
-
 }
