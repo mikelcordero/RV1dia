@@ -3,11 +3,10 @@ using UnityEngine;
 public class GeneradorProyectiles : MonoBehaviour
 {
     public GameObject proyectilPrefab;
-    public Transform jugador; // Asigna la posición del jugador
+    public Transform jugador; // Cámara o XR Rig
     public float distanciaSpawn = 5f;
-    public float alturaMin = 1f;
-    public float alturaMax = 3f;
     public float spawnIntervalo = 2f;
+    public float velocidadProyectil = 5f;
 
     void Start()
     {
@@ -16,15 +15,25 @@ public class GeneradorProyectiles : MonoBehaviour
 
     void SpawnProyectil()
     {
-        // Generamos un offset aleatorio en X para que no siempre salga del centro
-        float offsetX = Random.Range(-2f, 2f);  // Puedes ajustar el rango según necesites
-        float altura = Random.Range(alturaMin, alturaMax);
+        // Dirección del jugador
+        Vector3 forward = jugador.forward.normalized;
+        Vector3 right = jugador.right.normalized;
 
-        Vector3 spawnPos = jugador.position + jugador.forward * distanciaSpawn;
-        spawnPos += new Vector3(offsetX, altura, 0); // Modifica la altura y lateralidad
+        // Offset lateral aleatorio (izquierda, centro, derecha)
+        float[] offsetOpciones = { -1.5f, 0f, 1.5f };
+        float offsetLateral = offsetOpciones[Random.Range(0, offsetOpciones.Length)];
 
+        // POSICIÓN: a 'distanciaSpawn' en dirección a donde mira el jugador + offset lateral
+        Vector3 spawnPos = jugador.position + forward * distanciaSpawn + right * offsetLateral;
+
+        // Crear proyectil
         GameObject proyectil = Instantiate(proyectilPrefab, spawnPos, Quaternion.identity);
-        proyectil.transform.LookAt(jugador); // Hace que apunte al jugador
-        proyectil.GetComponent<Rigidbody>().velocity = (jugador.position - spawnPos).normalized * 5f; // Ajusta la velocidad
+
+        // Dirección hacia el jugador (para que venga hacia él)
+        Vector3 direccion = (jugador.position - spawnPos).normalized;
+
+        // Mover proyectil con física
+        Rigidbody rb = proyectil.GetComponent<Rigidbody>();
+        rb.velocity = direccion * velocidadProyectil;
     }
 }
