@@ -3,6 +3,7 @@ using UnityEngine;
 public class GeneradorProyectiles : MonoBehaviour
 {
     public GameObject proyectilPrefab;
+    public GameObject proyectilRojoPrefab; // Añadimos el prefab para el proyectil rojo
     public Transform jugador; // Cámara o XR Rig
     public float distanciaSpawn = 5f;
     public float spawnIntervalo = 2f;
@@ -26,8 +27,16 @@ public class GeneradorProyectiles : MonoBehaviour
         // POSICIÓN: a 'distanciaSpawn' en dirección a donde mira el jugador + offset lateral
         Vector3 spawnPos = jugador.position + forward * distanciaSpawn + right * offsetLateral;
 
-        // Crear proyectil
-        GameObject proyectil = Instantiate(proyectilPrefab, spawnPos, Quaternion.identity);
+        // Aquí generamos un proyectil rojo con un 50% de probabilidad, por ejemplo
+        GameObject proyectil;
+        if (Random.value > 0.5f) // 50% de probabilidad de generar un proyectil rojo
+        {
+            proyectil = Instantiate(proyectilRojoPrefab, spawnPos, Quaternion.identity);
+        }
+        else
+        {
+            proyectil = Instantiate(proyectilPrefab, spawnPos, Quaternion.identity);
+        }
 
         // Dirección hacia el jugador (para que venga hacia él)
         Vector3 direccion = (jugador.position - spawnPos).normalized;

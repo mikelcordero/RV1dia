@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535ecff015c7b42078767ac98182a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marcador: {fileID: 0}
+  marcadorPuntos: {fileID: 0}
 --- !u!1 &2190828208922718286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,7 +1777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535ecff015c7b42078767ac98182a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marcador: {fileID: 0}
+  marcadorPuntos: {fileID: 0}
 --- !u!1 &4026763789982141574
 GameObject:
   m_ObjectHideFlags: 0

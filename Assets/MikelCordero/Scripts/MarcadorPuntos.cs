@@ -25,6 +25,20 @@ public class MarcadorPuntos : MonoBehaviour
         }
     }
 
+    // Método para restar un punto
+    public void RestarPunto()
+    {
+        puntos--;
+        if (puntos < 0) puntos = 0; // Evitar que los puntos sean negativos
+        ActualizarMarcador();
+    }
+
+    // Método para obtener el puntaje actual (para depuración)
+    public int GetPuntos()
+    {
+        return puntos;
+    }
+
     void Update()
     {
         marcadorTexto.transform.position = muroMarcador.position;

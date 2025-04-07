@@ -411,9 +411,8 @@ MonoBehaviour:
   proyectilPrefab: {fileID: 8192909319462334803, guid: f5ed695c48da84552b267c7511998d10, type: 3}
   jugador: {fileID: 621884561}
   distanciaSpawn: 6
-  alturaMin: 1
-  alturaMax: 1
   spawnIntervalo: 2
+  velocidadProyectil: 5
 --- !u!4 &667780232
 Transform:
   m_ObjectHideFlags: 0
