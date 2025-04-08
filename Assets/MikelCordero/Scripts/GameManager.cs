@@ -1,33 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public TextMeshProUGUI puntosTexto;
-    private int puntos = 0;
+    public static GameManager instance;
+
+    public int puntosObjetivo = 10;
+    public bool sableDoble = false;
 
     private void Awake()
     {
-        Instance = this;
-    }
-
-    public void SumarPunto()
-    {
-        puntos++;
-        puntosTexto.text = "Puntos: " + puntos;
-
-        if (puntos >= 20)
+        if (instance != null && instance != this)
         {
-            FinDelJuego();
+            Destroy(gameObject);
+        } 
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-    void FinDelJuego()
+    public void EstablecerPuntosObjetivo(int valor)
     {
-        Debug.Log("¡Has ganado!");
-        Time.timeScale = 0; // Pausa el juego
+        puntosObjetivo = valor;
+    }
+
+    public void EstablecerSableDoble(bool valor)
+    {
+        sableDoble = valor;
     }
 }
+

@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class GeneradorProyectiles : MonoBehaviour
 {
-    public GameObject proyectilPrefab;
-    public GameObject proyectilRojoPrefab; // Añadimos el prefab para el proyectil rojo
-    public Transform jugador; // Cámara o XR Rig
-    public float distanciaSpawn = 5f;
-    public float spawnIntervalo = 2f;
-    public float velocidadProyectil = 5f;
+    public GameObject proyectilPrefab;      // Prefab de proyectil normal
+    public GameObject proyectilRojoPrefab; // Prefab de proyectil rojo
+    public Transform jugador;              // Transform del jugador (Cámara o XR Rig)
+    public float distanciaSpawn = 5f;      // Distancia para spawn de los proyectiles
+    public float spawnIntervalo = 2f;      // Intervalo entre spawn de proyectiles
+    public float velocidadProyectil = 5f;  // Velocidad del proyectil
 
     void Start()
     {
-        InvokeRepeating("SpawnProyectil", 2f, spawnIntervalo);
+        InvokeRepeating("SpawnProyectil", 2f, spawnIntervalo); // Llamar a la función para spawnear proyectiles
     }
 
     void SpawnProyectil()
@@ -27,9 +27,9 @@ public class GeneradorProyectiles : MonoBehaviour
         // POSICIÓN: a 'distanciaSpawn' en dirección a donde mira el jugador + offset lateral
         Vector3 spawnPos = jugador.position + forward * distanciaSpawn + right * offsetLateral;
 
-        // Aquí generamos un proyectil rojo con un 50% de probabilidad, por ejemplo
+        // Generar un proyectil con 50% de probabilidad que sea rojo
         GameObject proyectil;
-        if (Random.value > 0.5f) // 50% de probabilidad de generar un proyectil rojo
+        if (Random.value > 0.5f) // 50% de probabilidad
         {
             proyectil = Instantiate(proyectilRojoPrefab, spawnPos, Quaternion.identity);
         }

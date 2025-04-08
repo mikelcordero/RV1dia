@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proyectilPrefab: {fileID: 8192909319462334803, guid: f5ed695c48da84552b267c7511998d10, type: 3}
-  proyectilRojoPrefab: {fileID: 3922455326343109867, guid: 855159f6ad322457fa144c48949d0827, type: 3}
+  proyectilRojoPrefab: {fileID: 0}
   jugador: {fileID: 621884561}
   distanciaSpawn: 5
   spawnIntervalo: 2

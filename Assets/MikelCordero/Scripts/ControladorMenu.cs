@@ -1,32 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ControladorMenu : MonoBehaviour
 {
-    public Dropdown dropdownPuntos;
-    public Toggle toggleSables;
+    public Dropdown dropdownPuntos; // Combobox para elegir puntos
+    public Toggle toggleSables; // Toggle para elegir sable único o doble
 
-    public void IniciarNivelFacil()
+    public void Start()
     {
-        GuardarConfiguracion();
-        ConfiguracionJuego.instancia.nivelDificil = false;
-        SceneManager.LoadScene("NivelFacil");
+        // Cargar las configuraciones previas, si existen
+        int puntosGuardados = PlayerPrefs.GetInt("PuntosObjetivo", 10);
+        dropdownPuntos.value = (puntosGuardados - 10) / 10; // Ajuste del valor guardado en el dropdown
+        toggleSables.isOn = PlayerPrefs.GetInt("SableDoble", 0) == 1; // Cargar la opción de sable doble
     }
 
-    public void IniciarNivelDificil()
+    public void CambiarPuntosObjetivo()
     {
-        GuardarConfiguracion();
-        ConfiguracionJuego.instancia.nivelDificil = true;
-        SceneManager.LoadScene("NivelDificil");
+        // Guardar la opción seleccionada para puntos
+        int puntos = (dropdownPuntos.value + 1) * 10;
+        PlayerPrefs.SetInt("PuntosObjetivo", puntos);
+        PlayerPrefs.Save();
     }
 
-    void GuardarConfiguracion()
+    public void CambiarTipoSable()
     {
-        int puntos = int.Parse(dropdownPuntos.options[dropdownPuntos.value].text);
-        ConfiguracionJuego.instancia.puntosObjetivo = puntos;
-        ConfiguracionJuego.instancia.dobleSable = toggleSables.isOn;
+        // Guardar si el jugador elige sable doble o no
+        PlayerPrefs.SetInt("SableDoble", toggleSables.isOn ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public void CargarEscena(string escena)
+    {
+        SceneManager.LoadScene(escena); // Cambiar a las escenas de Nivel
     }
 }

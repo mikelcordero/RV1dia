@@ -1,13 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class MarcadorPuntos : MonoBehaviour
 {
+    // Instancia estática para acceder a la clase desde otros scripts
+    public static MarcadorPuntos Instancia;
+
     public TextMeshPro marcadorTexto;
     public Transform muroMarcador;
     private int puntos = 0;
+
+    void Awake()
+    {
+        // Verificar que no haya más de una instancia de MarcadorPuntos en la escena
+        if (Instancia != null && Instancia != this)
+        {
+            Destroy(gameObject); // Destruir este objeto si ya hay otra instancia
+        }
+        else
+        {
+            Instancia = this; // Asignar la instancia estática
+        }
+    }
 
     void Start()
     {
@@ -45,7 +59,8 @@ public class MarcadorPuntos : MonoBehaviour
         marcadorTexto.transform.rotation = muroMarcador.rotation;
     }
 
-    void ActualizarMarcador()
+    // Método privado para actualizar el marcador
+    private void ActualizarMarcador()
     {
         marcadorTexto.text = "Puntos: " + puntos;
     }

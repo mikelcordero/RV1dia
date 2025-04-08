@@ -13,7 +13,7 @@ public class ConfiguracionJuego : MonoBehaviour
         if (instancia == null)
         {
             instancia = this;
-            DontDestroyOnLoad(gameObject); // Persiste entre escenas
+            DontDestroyOnLoad(gameObject); // Persistente entre escenas
         }
         else
         {

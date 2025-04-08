@@ -374,11 +374,6 @@ Transform:
   - {fileID: 104280070}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &621884561 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7696548424635294051, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-  m_PrefabInstance: {fileID: 1365336117}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &667780230
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +386,7 @@ GameObject:
   - component: {fileID: 667780231}
   m_Layer: 0
   m_Name: GeneradorProyectiles
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,8 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proyectilPrefab: {fileID: 8192909319462334803, guid: f5ed695c48da84552b267c7511998d10, type: 3}
-  jugador: {fileID: 621884561}
-  distanciaSpawn: 6
+  proyectilRojoPrefab: {fileID: 3922455326343109867, guid: 855159f6ad322457fa144c48949d0827, type: 3}
+  jugador: {fileID: 2095202327}
+  distanciaSpawn: 5
   spawnIntervalo: 2
   velocidadProyectil: 5
 --- !u!4 &667780232
@@ -464,7 +460,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -784,6 +780,14 @@ PrefabInstance:
       propertyPath: marcadorPuntos
       value: 
       objectReference: {fileID: 452414434}
+    - target: {fileID: 5704005604250294983, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_Name
+      value: Sable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704005604250294983, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_TagString
+      value: Sable
+      objectReference: {fileID: 0}
     - target: {fileID: 5939055646128687969, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -795,6 +799,26 @@ PrefabInstance:
     - target: {fileID: 7313654230448209575, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390151252253590662, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_Name
+      value: sable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390151252253590662, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_TagString
+      value: Sable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170783728641055, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 9014170783809206335, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -941,6 +965,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &2095202327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7696548424635294051, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 1365336117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

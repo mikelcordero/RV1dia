@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3570487484176928879}
   - component: {fileID: 4284850117112075260}
   - component: {fileID: 898949357367829970}
+  - component: {fileID: 421873559038056946}
   m_Layer: 0
   m_Name: Proyectilrojo
   m_TagString: Proyectil
@@ -146,4 +147,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94206f8703a545c98f0d7deda979de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 3
+  velocidad: 2
+--- !u!114 &421873559038056946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3922455326343109867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ee69774254b42d09e0a05142e9322c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 2
