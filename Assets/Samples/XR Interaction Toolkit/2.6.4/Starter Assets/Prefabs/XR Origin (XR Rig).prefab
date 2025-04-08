@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 3419084467261965356}
   - component: {fileID: 4496052836910053952}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: SableDos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1382,7 +1382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535ecff015c7b42078767ac98182a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marcadorPuntos: {fileID: 0}
 --- !u!1 &2190828208922718286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1672,7 @@ GameObject:
   - component: {fileID: 7292953659805290941}
   - component: {fileID: 7948889386906712164}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: SableUno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1777,7 +1776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535ecff015c7b42078767ac98182a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marcadorPuntos: {fileID: 0}
 --- !u!1 &4026763789982141574
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,25 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class MarcadorPuntos : MonoBehaviour
 {
-    // Instancia estática para acceder a la clase desde otros scripts
     public static MarcadorPuntos Instancia;
 
     public TextMeshPro marcadorTexto;
     public Transform muroMarcador;
+
     private int puntos = 0;
+    public int puntosParaGanar = 20;
 
     void Awake()
     {
-        // Verificar que no haya más de una instancia de MarcadorPuntos en la escena
-        if (Instancia != null && Instancia != this)
+        if (Instancia == null)
         {
-            Destroy(gameObject); // Destruir este objeto si ya hay otra instancia
+            Instancia = this;
+            DontDestroyOnLoad(gameObject); // Mantener al cambiar de escena
         }
         else
         {
-            Instancia = this; // Asignar la instancia estática
+            Destroy(gameObject);
         }
     }
 
@@ -33,34 +36,42 @@ public class MarcadorPuntos : MonoBehaviour
         puntos++;
         ActualizarMarcador();
 
-        if (puntos >= 20)
+        if (puntos >= puntosParaGanar)
         {
             marcadorTexto.text = "¡GANASTE!";
         }
     }
 
-    // Método para restar un punto
     public void RestarPunto()
     {
         puntos--;
-        if (puntos < 0) puntos = 0; // Evitar que los puntos sean negativos
+        if (puntos < 0) puntos = 0;
         ActualizarMarcador();
     }
 
-    // Método para obtener el puntaje actual (para depuración)
-    public int GetPuntos()
+    public void SetPuntos(int nuevosPuntosParaGanar)
     {
-        return puntos;
+        puntosParaGanar = nuevosPuntosParaGanar;
+        puntos = 0;
+        ActualizarMarcador();
+    }
+
+    public void RestaurarPuntos()
+    {
+        puntos = 0;
+        ActualizarMarcador();
     }
 
     void Update()
     {
-        marcadorTexto.transform.position = muroMarcador.position;
-        marcadorTexto.transform.rotation = muroMarcador.rotation;
+        if (marcadorTexto != null && muroMarcador != null)
+        {
+            marcadorTexto.transform.position = muroMarcador.position;
+            marcadorTexto.transform.rotation = muroMarcador.rotation;
+        }
     }
 
-    // Método privado para actualizar el marcador
-    private void ActualizarMarcador()
+    void ActualizarMarcador()
     {
         marcadorTexto.text = "Puntos: " + puntos;
     }

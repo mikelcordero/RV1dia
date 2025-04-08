@@ -1,37 +1,53 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ControladorMenu : MonoBehaviour
 {
-    public Dropdown dropdownPuntos; // Combobox para elegir puntos
-    public Toggle toggleSables; // Toggle para elegir sable único o doble
+    public Dropdown puntuacionDropdown;
+    public Toggle dosSablesToggle;
+    public SableControl sableControl;
 
-    public void Start()
+    void Start()
     {
-        // Cargar las configuraciones previas, si existen
-        int puntosGuardados = PlayerPrefs.GetInt("PuntosObjetivo", 10);
-        dropdownPuntos.value = (puntosGuardados - 10) / 10; // Ajuste del valor guardado en el dropdown
-        toggleSables.isOn = PlayerPrefs.GetInt("SableDoble", 0) == 1; // Cargar la opción de sable doble
+        // Opciones del menú
+        puntuacionDropdown.ClearOptions();
+        puntuacionDropdown.AddOptions(new List<string> { "10 puntos", "20 puntos", "30 puntos" });
+
+        // Restaurar puntos al iniciar
+        if (MarcadorPuntos.Instancia != null)
+            MarcadorPuntos.Instancia.RestaurarPuntos();
+
+        // Configura los sables al inicio
+        CambiarNumeroDeSables();
     }
 
-    public void CambiarPuntosObjetivo()
+    public void CambiarPuntuacion()
     {
-        // Guardar la opción seleccionada para puntos
-        int puntos = (dropdownPuntos.value + 1) * 10;
-        PlayerPrefs.SetInt("PuntosObjetivo", puntos);
-        PlayerPrefs.Save();
+        int puntosSeleccionados = 0;
+
+        switch (puntuacionDropdown.value)
+        {
+            case 0: puntosSeleccionados = 10; break;
+            case 1: puntosSeleccionados = 20; break;
+            case 2: puntosSeleccionados = 30; break;
+        }
+
+        if (MarcadorPuntos.Instancia != null)
+            MarcadorPuntos.Instancia.SetPuntos(puntosSeleccionados);
     }
 
-    public void CambiarTipoSable()
+    public void CambiarNumeroDeSables()
     {
-        // Guardar si el jugador elige sable doble o no
-        PlayerPrefs.SetInt("SableDoble", toggleSables.isOn ? 1 : 0);
-        PlayerPrefs.Save();
+        sableControl.CambiarNumeroDeSables(dosSablesToggle.isOn);
     }
 
-    public void CargarEscena(string escena)
+    // Llamar esto desde botón para cargar el nivel después de configurar el menú
+    public void EmpezarNivel(string nombreEscena)
     {
-        SceneManager.LoadScene(escena); // Cambiar a las escenas de Nivel
+        CambiarPuntuacion();
+        CambiarNumeroDeSables();
+        SceneManager.LoadScene(nombreEscena);
     }
 }

@@ -2,14 +2,39 @@ using UnityEngine;
 
 public class Proyectil : MonoBehaviour
 {
-    public Vector3 direccion;        // Dirección en la que se mueve el proyectil
-    public bool esProyectilRojo = false; // Esta variable está en falso para los proyectiles normales
-    public float velocidad = 5f;     // Velocidad de movimiento del proyectil
+    public bool esProyectilRojo = false; // Para saber si es un proyectil rojo
+    public float velocidadProyectil = 3f; // Velocidad del proyectil
+    private Rigidbody rb; // Rigidbody del proyectil
+    private float tiempoVida = 5f; // Tiempo que tarda en destruirse si no colisiona
+    private float temporizador = 2f; // Temporizador para destruir el proyectil
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        // Si tienes un Rigidbody, debes darle una velocidad inicial para que siga su camino
+        Vector3 direccion = transform.forward; // Dirección hacia donde apunta el proyectil
+        rb.velocity = direccion * velocidadProyectil;
+    }
 
     void Update()
     {
-        // Movemos el proyectil hacia la dirección especificada
-        transform.Translate(direccion * velocidad * Time.deltaTime);
+        // Incrementar el temporizador
+        temporizador += Time.deltaTime;
+
+        // Si el proyectil ha estado en el juego más de `tiempoVida` segundos, lo destruimos
+        if (temporizador >= tiempoVida)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Aquí puedes manejar las colisiones con el sable
+        if (other.CompareTag("Sable"))
+        {
+            // Se destruye el proyectil al entrar en contacto con el sable
+            Destroy(gameObject);
+        }
     }
 }
-

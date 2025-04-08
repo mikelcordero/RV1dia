@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marcadorTexto: {fileID: 104280068}
   muroMarcador: {fileID: 1116376004}
+  puntosParaGanar: 20
 --- !u!4 &452414435
 Transform:
   m_ObjectHideFlags: 0

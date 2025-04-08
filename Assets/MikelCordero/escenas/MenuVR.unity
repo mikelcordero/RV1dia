@@ -500,6 +500,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1851643275860194837, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851643275860194837, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1822006144}
+    - target: {fileID: 1851643275860194837, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CambiarTipoSable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851643275860194837, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1851643275860194838, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -640,6 +656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactive Controls
       objectReference: {fileID: 0}
+    - target: {fileID: 5500222020134444911, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_Name
+      value: ToggleSables
+      objectReference: {fileID: 0}
     - target: {fileID: 6286078562336932208, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -671,6 +691,14 @@ PrefabInstance:
     - target: {fileID: 6362904755243167639, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: 30 puntos
       objectReference: {fileID: 0}
     - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Image
@@ -684,6 +712,38 @@ PrefabInstance:
       propertyPath: m_Options.m_Options.Array.data[2].m_Image
       value: 
       objectReference: {fileID: 21300000, guid: 89cb99e3e22696848a1cbce7b320f520, type: 3}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 89cb99e3e22696848a1cbce7b320f520, type: 3}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1822006144}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CambiarPuntosObjetivo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ControladorMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782198574890342272, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7782198574890342273, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -742,7 +802,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3667051746007278432, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1822006153}
+      addedObject: {fileID: 1822006144}
   m_SourcePrefab: {fileID: 100100000, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
 --- !u!1 &462334520 stripped
 GameObject:
@@ -936,6 +996,17 @@ Transform:
   - {fileID: 1691737102}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1011885580 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 975326512693904583, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
+  m_PrefabInstance: {fileID: 403799093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1566747457
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +1068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672885471}
-  - component: {fileID: 1672885470}
+  - component: {fileID: 1672885472}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -1005,20 +1076,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1672885470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672885469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d767f511da64d49bd99251673375ed04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropdownPuntos: {fileID: 803377555}
-  toggleSable: {fileID: 0}
 --- !u!4 &1672885471
 Transform:
   m_ObjectHideFlags: 0
@@ -1034,6 +1091,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672885472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672885469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8fa31ec46ee4bc0a1740f897ee585b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1691737101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1552,7 +1621,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3667051746007278432, guid: 7bbb1960bab3e75459304488d8d1ffba, type: 3}
   m_PrefabInstance: {fileID: 403799093}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1822006153
+--- !u!114 &1822006144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1561,11 +1630,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1822006143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8fa31ec46ee4bc0a1740f897ee585b, type: 3}
+  m_Script: {fileID: 11500000, guid: d767f511da64d49bd99251673375ed04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntosObjetivo: 10
-  sableDoble: 0
+  puntuacionDropdown: {fileID: 803377555}
+  dosSablesToggle: {fileID: 1011885580}
+  sableControl: {fileID: 0}
 --- !u!1 &1889242510
 GameObject:
   m_ObjectHideFlags: 0
